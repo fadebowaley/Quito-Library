@@ -1,24 +1,18 @@
-package ro🇺tes 
+package routes
+
+
 
 
 import (
 	"github.com/gorilla/mux"
-	"github.com/fadebowaley/Quito-Library/pkg/contollers"
+	"github.com/fadebowaley/Quito-Library/pkg/controllers"
 )
 
-var RegisterBookStoreRoutes = func(router *mux.Router){
-
+var RegisterBookStoreRouters = func(router *mux.Router) {
 	router.HandleFunc("/book/", controllers.CreateBook).Methods("POST")
-	router.HandleFunc("/book/", controllers.GetBook).Methods("GET")
-	router.HandleFunc("/book/{bookId}", controllers.GetBookById).Methods("GET")	
-	router.HandleFunc("/book/{bookId}", controllers.UpdateBook).Methods("PUT")
-	router.HandleFunc("/book/{bookId}", controllers.DeleteBook).Methods("DELETE")
-
+	router.HandleFunc("/book/", controllers.GetBooks).Methods("GET")
+	router.HandleFunc("/book/{id}", controllers.GetBookById).Methods("GET")
+	router.HandleFunc("/book/{id}", controllers.DeleteBook).Methods("DELETE")
+	router.HandleFunc("/book/{id}", controllers.UpdateBook).Methods("PUT")
 }
 
-var CreateNewLibaryRoutes = func(router *muxRouter){
-	router.HandleFunc("/libary/", controllers.CreatLibrary).Methods("POST")
-	router.HandleFunc("/library", controllers.GetLibrary).Methods("GET")
-	router.HandleFunc("/libray/{libraryId}", controllers.GetLibraryById).Methods("GET")
-
-}
